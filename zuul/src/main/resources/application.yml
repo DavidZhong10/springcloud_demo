@@ -1,0 +1,52 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: gateway-zuul		#Zuul网关在Eureka的服务名称，随便取
+eureka:
+  client:
+    service-url:
+      #Eureka的注册地址
+      defaultZone: http://127.0.0.1:7001/eureka
+
+#
+#  1.routes.app-a指的应用app-a，这个名字可改为app-b，app-c
+#
+#  2.routes.app-a.path指的是属于应用app-a的请求，使用**进行通配
+#
+#  3.routes.app-a.servieId指的是请求被指向的应用名称
+#
+#   下图配置代表：http://127.0.0.1:8090/test/sayHello   会被重新指向 provider/sayHello ,
+#   而provider-user已经在Eureka中注册，所以最终的请求路径为：http://127.0.0.1:8001/sayHello
+#
+
+#zuul:
+#  ignoredServices: '*'
+#  routes:
+#    app-a:
+#      path: /test/**
+#      serviceId: Test-Provider
+
+
+zuul:
+  routes:
+    # 这里的名称可以根据业务来取
+    provider-a:
+      # 没有提示，自己取名称，值为服务提供者的应用名称；
+#      serviceId: test-provider
+      # url提供访问地址，与 serviceId 可以任选一个，推荐选用serviceId, 这样可以做到服务端接口负载均衡
+      url: http://127.0.0.1:8001/
+      # 匹配指定的路径，资源匹配的路径才会拦截，转发，  例如：  127.0.0.1:8090/test/provider/sayHello  ;
+      path: /test/**
+
+    provider-b:
+      serviceId: test-provider
+      # 如果是两个相同的服务，只是端口不一样，那么在网关zuul中设置多个url，只会访问最后那个url及path路径
+      # 当设置了url，也设置了serviceId那么只会按顺序访问匹配的最后那个；
+#      url: http://127.0.0.1:8002/
+      path: /test/**
+
+
+
+
+

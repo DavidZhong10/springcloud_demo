@@ -1,0 +1,14 @@
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: 127.0.0.1  	#本机地址 比如 localhost 都可以
+  client:
+    # 是否从eureka上获取注册信息，false 表示不会
+    fetch-registry: false
+    # 这里设置false表示eureka自己不会注册在eureka自己本身上
+    register-with-eureka: false
+    service-url:
+     # 注：这个格式就是在命名后一定要空一格才能生效
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+

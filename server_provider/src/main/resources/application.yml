@@ -1,0 +1,39 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: Test-Provider   #服务名称，随意取
+#  datasource:
+#    # 当前数据源操作类型
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    # mysql驱动包
+#    driver-class-name: org.gjt.mm.mysql.Driver
+#    # 数据库名称
+#    url: jdbc:mysql://localhost:3306/cloudDB01
+#    data-username: root
+#    password: root
+#    dbcp2:
+#      # 数据库连接池的最小维持连接数
+#      min-idle: 5
+#      # 初始化连接数
+#      initial-size: 5
+#      # 最大连接数
+#      max-total: 5
+#      # 等待连接获取的最大超时时间，如果超过此时间将接到异常。设为-1表示无限制，这里表示2秒后超时；
+#      max-wait-millis: 200
+
+
+eureka:
+  client:
+    service-url:
+      # 注册到Eureka的地址
+      defaultZone: http://127.0.0.1:7001/eureka
+    # 这个设置为false的话，表示不注册到 eureka注册中心上,  默认为 true（即是默认注册到 eureka 注册中心上）
+    # 注意，如果没有启动注册中心的话，会报错，需要在 pom.xml中注释掉 “Eureka客户端依赖”，及在application.yml中也要注释掉；
+    # 在启动服务的main方法中也要注释掉这个注解 @EnableEurekaClient
+#    register-with-eureka: false
+
+# 日志
+logging:
+  level:
+    root: INFO

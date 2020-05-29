@@ -43,7 +43,7 @@ zuul:
       serviceId: test-provider
       # 如果是两个相同的服务，只是端口不一样，那么在网关zuul中设置多个url，只会访问最后那个url及path路径
       # 当设置了url，也设置了serviceId那么只会按顺序访问匹配的最后那个；
-#      url: http://127.0.0.1:8002/
+      # url: http://127.0.0.1:8002/
       path: /test/**
 
 

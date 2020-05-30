@@ -7,7 +7,7 @@ eureka:
   client:
     service-url:
       #注册到Eureka的地址
-      defaultZone: http://127.0.0.1:7001/eureka
+      defaultZone: http://user:pwd123456@127.0.0.1:7001/eureka/
      # 这个设置为false的话，表示不注册到 eureka注册中心上,  默认为 true（即是默认注册到 eureka 注册中心上）
      # 设置为 true的话，表示从注册中心订阅提供者提供的服务，不会直接从提供者获取服务
 #    register-with-eureka: false

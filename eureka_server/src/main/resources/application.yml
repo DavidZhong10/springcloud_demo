@@ -1,3 +1,10 @@
+spring:
+  security:
+    basic:
+      enabled: true
+    user:
+      name: user
+      password: pwd123456
 server:
   port: 7001
 eureka:
@@ -10,5 +17,5 @@ eureka:
     register-with-eureka: false
     service-url:
      # 注：这个格式就是在命名后一定要空一格才能生效
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+#      defaultZone: http://user:pwd123456@127.0.0.1:7001/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/

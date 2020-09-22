@@ -7,7 +7,8 @@ eureka:
   client:
     service-url:
       #Eureka的注册地址
-      defaultZone: http://127.0.0.1:7001/eureka
+#      defaultZone: http://127.0.0.1:7001/eureka
+      defaultZone: http://47.112.238.117:7001/eureka
 
 #
 #  1.routes.app-a指的应用app-a，这个名字可改为app-b，app-c
@@ -35,7 +36,8 @@ zuul:
       # 没有提示，自己取名称，值为服务提供者的应用名称；
 #      serviceId: test-provider
       # url提供访问地址，与 serviceId 可以任选一个，推荐选用serviceId, 这样可以做到服务端接口负载均衡
-      url: http://127.0.0.1:8001/
+#      url: http://127.0.0.1:8001/
+      url: http://47.112.238.117:8001/
       # 匹配指定的路径，资源匹配的路径才会拦截，转发，  例如：  127.0.0.1:8090/test/provider/sayHello  ;
       path: /test/**
 

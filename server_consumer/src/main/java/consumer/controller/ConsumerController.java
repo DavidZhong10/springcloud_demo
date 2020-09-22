@@ -22,9 +22,9 @@ public class ConsumerController {
      *  当使用服务注册中心的时候，可以服务的注册名称来代替；
      *
      *  可以这样设置  http://{服务提供者应用名名称}/{具体的controller}
-     *  前提是：RestTemplate必须由 @LoadBalanced 注解才能使用，否则则不起作用；
+     *  前提是：RestTemplate必须由 @LoadBalanced 注解才能使用，否则不起作用；
      *
-     *   原因： resttemplate只是类似于httpclient的一个发送rest风格的请求，它这里
+     *   原因： restTemplate只是类似于httpclient的一个发送rest风格的请求，它这里
      *      是没有办法去识别所谓的服务名的，不识别服务名当然就会报那个错误咯。在
      *     《spring Cloud 微服务实战》这本书上写的，一定要@loadBalance注解修饰的
      *      restTemplate才能实现服务名的调用，没有修饰的restTemplate是没有该功能的。
@@ -51,14 +51,14 @@ public class ConsumerController {
     }
 
     @Autowired
-    private RestTemplate resttemplate;
+    private RestTemplate restTemplate;
 
 
 
     @RequestMapping("get")
     public String get(){
-//        RestTemplate resttemplate = new RestTemplate();
-        String data = resttemplate.getForObject(url + "/get", String.class);
+//        RestTemplate restTemplate = new RestTemplate();
+        String data = restTemplate.getForObject(url + "/get", String.class);
         return data;
     }
 }

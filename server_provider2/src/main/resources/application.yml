@@ -7,7 +7,9 @@ eureka:
   client:
     service-url:
       # 注册到Eureka的地址
-      defaultZone: http://127.0.0.1:7001/eureka
+#      defaultZone: http://127.0.0.1:7001/eureka
+      defaultZone: http://47.112.238.117:7001/eureka
+
     # 这个设置为false的话，表示不注册到 eureka注册中心上,  默认为 true（即是默认注册到 eureka 注册中心上）
     # 注意，如果没有启动注册中心的话，会报错，需要在 pom.xml中注释掉 “Eureka客户端依赖”，及在application.yml中也要注释掉；
     # 在启动服务的main方法中也要注释掉这个注解 @EnableEurekaClient

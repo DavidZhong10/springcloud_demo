@@ -10,7 +10,9 @@ server:
 eureka:
   instance:
 #    hostname: 127.0.0.1  	#本机地址 比如 localhost 都可以
+    #测试的ip地址
     hostname: 47.112.238.117
+
   client:
     # 是否从eureka上获取注册信息，false 表示不会
     fetch-registry: false
